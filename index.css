@@ -60,12 +60,12 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-left: 20px; /* Adjusted margin for buttons */
-    margin-top: 10px; /* Added margin for spacing */
+    margin-left: 20px;
+    margin-top: 10px;
 }
 
 p {
-    font-size: 1.1rem; /* Added font size for converted amounts */
-    color: #000000; /* Added font color for converted amounts */
+    font-size: 1.1rem;
+    color: #000000;
     margin-bottom: 80px;
 }
