@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Converter</title>
+    <link rel="stylesheet" href="/static/index.css">
+</head>
+
+<body>
+    <h1>Converter</h1>
+    <div class="Main">
+        <h4>USD to INR Converter</h4>
+        <div class="container">
+            <input type="text" placeholder="Enter the USD amount" id="usdInput">
+            <button onclick="convert('USD_to_INR')">Convert</button>
+        </div>
+        <p id="convertedAmountINR"></p>
+
+        <h4>INR to USD Converter</h4>
+        <div class="container1">
+            <input type="text" placeholder="Enter the INR amount" id="inrInput">
+            <button onclick="convert('INR_to_USD')">Convert</button>
+        </div>
+        <p id="convertedAmountUSD"></p>
+    </div>
+    <script>
+        function convert(conversionType) {
+            var inputAmount;
+            if (conversionType === 'USD_to_INR') {
+                inputAmount = document.getElementById('usdInput').value;
+            } else {
+                inputAmount = document.getElementById('inrInput').value;
+            }
+
+            fetch('/convert', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ 'amount': inputAmount, 'type': conversionType }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (conversionType === 'USD_to_INR') {
+                        document.getElementById('convertedAmountINR').innerText = 'Converted Amount: ' + data['converted amount'] + ' INR';
+                    } else {
+                        document.getElementById('convertedAmountUSD').innerText = 'Converted Amount: ' + data['converted amount'] + ' USD';
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+
+</html>
