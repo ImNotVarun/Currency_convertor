@@ -1,5 +1,5 @@
 # Currency_convertor
-convert USD to INR and vice versa
+Convert USD to INR and vice versa
 
 ## How to Run
 
@@ -9,5 +9,7 @@ convert USD to INR and vice versa
 pip install Flask
 python3 app.py
 ```
+2. Go to this adderess - http://127.0.0.1:5000 // what showing under the red line
+3. ctrl+c to Quit
 
 
